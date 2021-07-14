@@ -5,7 +5,8 @@
 
             <div class="row">
 
-                <Album class="col-6 col-md-3 " 
+                <!-- qunado devi usare bootstrap ma vuoi 5 elementi per row -->
+                <Album class="custom-col" 
                 v-for="(album,index) in albums" :key="index" :album="album" />
                     
             </div>
@@ -31,6 +32,13 @@ export default {
     .bg-fluid {
         background-color: rgb(30, 45, 59);
         padding-top: 50px;
+        .container {
+            .row {
+                .custom-col {
+                    width: calc( 100% / 5)
+                }
+            }
+        }
     }
 
 </style>
