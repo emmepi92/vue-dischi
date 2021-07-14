@@ -4,10 +4,21 @@
         <div class="container">
 
             <div class="row">
+                <div v-if="albums.length < 10" class="wait">
+                    <h1>...caricamento in corso...</h1> 
+
+                </div>
 
                 <!-- qunado devi usare bootstrap ma vuoi 5 elementi per row -->
                 <Album class="custom-col" 
-                v-for="(album,index) in albums" :key="index" :album="album" />
+                v-else
+                v-for="(album,index) in albums" :key="index" 
+                :poster="album.poster" 
+                :title="album.title" 
+                :author="album.author" 
+                :year="album.year" 
+
+                />
                     
             </div>
         </div>
@@ -34,6 +45,10 @@ export default {
         padding-top: 50px;
         .container {
             .row {
+                .wait {
+                    height: calc(100vh - 68px);
+                    text-align: center;
+                }
                 .custom-col {
                     width: calc( 100% / 5)
                 }

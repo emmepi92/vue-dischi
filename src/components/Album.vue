@@ -1,10 +1,10 @@
 <template>
     <div class="album-container">
         <div class="album-content">
-            <img :src="album.poster" alt="">
-            <h3>{{ album.title }}</h3>
-            <div class="info">{{ album.author }}</div>  
-            <div class="info">{{ album.year}}</div>     
+            <img :src="poster" alt="">
+            <h3>{{ title }}</h3>
+            <div class="info">{{ author }}</div>  
+            <div class="info">{{ year}}</div>     
         </div>
     </div>
 </template>
@@ -12,9 +12,12 @@
 <script>
 export default {
     name: 'Album',
-    props: [
-        'album'
-    ]
+    props: {
+        poster: String,
+        title: String,
+        author: String,
+        year: String
+    }
 }
 </script>
 
