@@ -2,7 +2,7 @@
     <div class="album-container">
         <div class="album-content">
             <img :src="poster" alt="">
-            <h3>{{ title }}</h3>
+            <h4>{{ title }}</h4>
             <div class="info">{{ author }}</div>  
             <div class="info">{{ year}}</div>     
         </div>
@@ -29,13 +29,13 @@ export default {
             margin: 15px 10px;
             background-color: rgb(46, 58, 70);
             padding: 20px;
-            height: 430px;
+            height: 390px;
 
             img {
                 width: 100%;
             }
 
-            h3 {
+            h4 {
                 text-transform: uppercase;
                 padding: 15px 0;
             }

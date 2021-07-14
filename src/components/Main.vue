@@ -43,6 +43,7 @@ export default {
     .bg-fluid {
         background-color: rgb(30, 45, 59);
         padding-top: 50px;
+        padding-bottom: 50px;
         .container {
             .row {
                 .wait {
@@ -50,7 +51,7 @@ export default {
                     text-align: center;
                 }
                 .custom-col {
-                    width: calc( 100% / 5)
+                    width: 20%;
                 }
             }
         }
