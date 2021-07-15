@@ -4,7 +4,8 @@
         <div class="container">
 
             <div class="row">
-                <div v-if="albums.length < 10" class="wait">
+                <!-- perchè la chiama è unica all'API -->
+                <div v-if="albums.length === 0" class="wait">
                     <h1>...caricamento in corso...</h1> 
 
                 </div>
