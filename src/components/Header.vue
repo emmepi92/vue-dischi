@@ -2,7 +2,7 @@
     <div class="fluid-container">
 
         <img src="../assets/spotify-logo.png" alt="">
-        Header
+        
     </div>
 </template>
 

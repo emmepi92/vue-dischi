@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Header />
-    <Main :albums='albums' />
+    <Main :albums='albums' :filteredAlbums="filteredAlbums" />
   </div>
 </template>
 
@@ -19,11 +19,14 @@ export default {
   created () {
     axios.get('https://flynn.boolean.careers/exercises/api/array/music').then((result) => {
       this.albums = result.data.response;
+      this.filteredAlbums = result.data.response;
+
     })
   },
   data() {
     return {
-      albums: []
+      albums: [],
+      filteredAlbums: []
     }
   }
 }
