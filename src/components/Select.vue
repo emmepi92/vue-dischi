@@ -1,12 +1,13 @@
 <template>
     <div>
-        <label  for="gener">Scegli un genere </label>
-        <select @change="$emit('filter', inputGener)" v-model="inputGener">
+        <label  for="genre">Scegli un genere </label>
+        <select @change="$emit('filter', inputGenre)" v-model="inputGenre">
             <option value="">Tutti</option>
-            <option value="Pop">Pop</option>
+            <option v-for="(genre,index) in genreList" :key="index"  :value="genre">{{ genre }}</option>
+            <!-- <option value="Pop">Pop</option>
             <option value="Rock">Rock</option>
             <option value="Metal">Metal</option>
-            <option value="Jazz">Jazz</option>
+            <option value="Jazz">Jazz</option> -->
         </select>
     </div>
 </template>
@@ -14,9 +15,12 @@
 <script>
 export default {
     name: 'Select',
+    props: {
+        genreList:Array
+    },
     data () {
         return {
-            inputGener: ''
+            inputGenre: ''
         }
     }
 }

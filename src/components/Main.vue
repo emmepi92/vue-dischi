@@ -6,7 +6,7 @@
             <div class="row">
 
                 <div class="col-12">
-                    <Select @filter="filterAlbum" />
+                    <Select @filter="filterAlbum"  :genreList="genreList" />
                 </div>
 
                 <!-- perchè la chiama è unica all'API -->
@@ -23,7 +23,7 @@
                 :title="album.title" 
                 :author="album.author" 
                 :year="album.year" 
-                :gener="album.genre"
+                :genre="album.genre"
                 />
                     
             </div>
@@ -43,7 +43,8 @@ export default {
     },
     props: {
         albums:Array,
-        filteredAlbums:Array
+        filteredAlbums:Array,
+        genreList:Array
     },
     data () {
         return {
@@ -54,7 +55,7 @@ export default {
         this.filteredAlbums(this.attualFilter)
     },
     methods: {
-        //filtra lista
+        
         filterAlbum (filtro) {
             this.attualFilter = filtro;
 
@@ -79,6 +80,7 @@ export default {
         background-color: rgb(30, 45, 59);
         padding-top: 50px;
         padding-bottom: 50px;
+        min-height: calc(100vh - 67px);
         .container {
             .row {
                 .wait {
