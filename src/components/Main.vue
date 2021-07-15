@@ -6,7 +6,11 @@
       <div class="row" v-if="albums.length !== 0">
 
         <div class="col-12">
+
           <Select @filter="filterAlbum" :genreList="genreList" />
+
+          <SearchSong @searchTitle="filterTitle" />
+
         </div>
 
         <!-- qunado devi usare bootstrap ma vuoi 5 elementi per row -->
@@ -21,7 +25,7 @@
           :genre="album.genre"
         />
       </div>
-      
+
       <div class="row" v-else>
         <!-- perchè la chiama è unica all'API -->
         <div  class="wait">
@@ -37,29 +41,25 @@
 <script>
 import Album from "../components/Album.vue";
 import Select from "../components/Select.vue";
+import SearchSong from "../components/SearchSong.vue"
 
 export default {
   name: "Main",
   components: {
     Album,
     Select,
+    SearchSong
   },
   props: {
     albums: Array,
     filteredAlbums: Array,
     genreList: Array,
   },
-  data() {
-    return {
-      attualFilter: "",
-    };
-  },
   created() {
     this.filteredAlbums(this.attualFilter);
   },
   methods: {
     filterAlbum(filter) {
-      this.attualFilter = filter;
 
       // this.filteredAlbums = this.albums.filter((album) => {
       //     if (album.genre === filter ) {
@@ -72,22 +72,33 @@ export default {
         return album.genre.includes(filter);
       });
     },
+    filterTitle(title) {
+        this.filteredAlbums = this.albums.filter((album) => {
+        return album.title.toLowerCase().includes(title.toLowerCase());
+      });
+
+    }
   },
 };
 </script>
 
 <style lang="scss" scoped>
+
 .bg-fluid {
   background-color: rgb(30, 45, 59);
   padding-top: 50px;
   padding-bottom: 50px;
   min-height: calc(100vh - 67px);
+
   .container {
+
     .row {
+        
       .wait {
         height: calc(100vh - 68px);
         text-align: center;
       }
+
       .custom-col {
         width: 20%;
       }
